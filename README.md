@@ -1,0 +1,2 @@
+# Welcome to Activation-Based Active Learning for In-Context Learning
+This repository will soon contain the official code for the paper: [Activation-Based Active Learning for In-Context Learning: Challenges and Insights](https://arxiv.org/pdf/2606.05134), accepted at Insights workshop, EMNLP 2026. Our webpage, which includes auxiliary results can be accessed through [here](https://yaseenosman.github.io/activation-based-al).
