@@ -22,3 +22,7 @@ python ./scripts/evaluation.py --runid "gsm8k" --modelname "meta-llama/Llama-3.2
 ```bash
 python ./scripts/evaluation.py --runid "obqa" --modelname "Qwen/Qwen2.5-3B" --includepath "./lm_eval_tasks_adapted" --task "obqa_sampling" --outputpath "./out"
 ```
+## Acknowledgement
+This work was supported by the UK Research and Innovation Centre for Doctoral Training in Machine Intelligence for Nano-electronic Devices and Systems [EP/S024298/1]. The authors acknowledge the use of the IRIDIS High Performance Computing Facility, and associated support services at the University of Southampton, in the completion of this work.
+
+This repository benefitted from [transformers by huggingface](https://github.com/huggingface/transformers) and [lm-evaluation-harness by EleutherAI](https://github.com/EleutherAI/lm-evaluation-harness) codes.
