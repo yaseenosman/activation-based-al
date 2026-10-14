@@ -1,0 +1,5 @@
+# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/gsm8k/gsm8k.yaml
+# And https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/arc/arc_challenge.yaml
+include: gsm8k_sampling_1.yaml
+task: gsm8k_sampling_2
+dataset_path: "./out/gsm8k_processed_2"

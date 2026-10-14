@@ -1,0 +1,14 @@
+# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/super_glue/boolq/default.yaml
+task: boolq_sampling
+dataset_path: "./out/boolq_processed"
+output_type: multiple_choice
+test_split: test
+doc_to_text: "{{question}}?\nAnswer:"
+doc_to_target: label
+doc_to_choice: ["no", "yes"]
+should_decontaminate: true
+doc_to_decontamination_query: passage
+metric_list:
+  - metric: acc
+metadata:
+  version: 2.0
