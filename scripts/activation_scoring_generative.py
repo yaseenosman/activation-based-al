@@ -18,7 +18,7 @@ parser.add_argument("--attnmask", type=str, default="causal", choices=["causal",
 parser.add_argument("--dataid", type=str, default="gsm8k", choices=["gsm8k"])
 parser.add_argument("--splitid", type=int, default="1")
 parser.add_argument("--modelname", type=str, default="meta-llama/Llama-3.2-3B")
-parser.add_argument("--inputpath", type=str, default="./out/gsm8k_processed")
+parser.add_argument("--inputpath", type=str, default="./out/gsm8k_processed_1")
 parser.add_argument("--outputpath", type=str, default="./out")
 parser.add_argument("--addbos", action='store_true')
 
