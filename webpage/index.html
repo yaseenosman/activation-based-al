@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Finding a lack of correlation between activation-based sampling and in-context learning example performance.">
+  <meta name="keywords" content="ActivationALforICL, ActivationAL, ActALforICL">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Activation-Based Active Learning for In-Context Learning: Challenges and Insights</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Activation-Based Active Learning for In-Context Learning: Challenges and Insights</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://uk.linkedin.com/in/yaseen-m-osman">Yaseen M. Osman</a><sup></sup>,</span>
+            <span class="author-block">
+              <a href="https://geoffmerrett.co.uk/">Geoff V. Merrett</a><sup></sup>,</span>
+            <span class="author-block">
+              <a href="https://www.southampton.ac.uk/~sem03/">Stuart E. Middleton</a><sup></sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup></sup>University of Southampton</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2606.05134"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/yaseenosman/activation-based-al"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- Place holder -->
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf"> </span> We find <b>no</b> correlation between raw model activations (MLP + embedding layers) processed using any of the first four moments or massive activations, and in-context learning example performance.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Deep active learning has previously been explored for LLM in-context sample selection, but not with methods that utilise recent advances in understanding of transformer activations. 
+            In this paper, we test the hypothesis that model activations could provide a fine-grained signal to optimise the selection of in-context examples. We present a comprehensive analysis 
+            of MLP activation-based deep active learning methods applied to in-context learning, including how different attention masking strategies impact active learning across diverse 
+            classification and generative datasets, using both Llama-3.2-3B and Qwen2.5-3B base models. However, we find a negative result: MLP and embedding layer outputs, viewed through the 
+            lenses of massive activations or the first four moments, do not correlate with example quality or task performance. Specifically, the absolute Spearman correlation coefficient is at 
+            most 0.33 for all tasks and models we tested, showing that such activation-based sampling should not be used for in-context learning. We hypothesise that this may be due to 
+            superposition, whereby models represent more features than they have dimensionality, suggesting that methods like Sparse Autoencoders (SAEs) may be a promising future direction.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+
+        <!-- Classification. -->
+        <h3 class="title is-4">Classification Tasks</h3>
+        <div class="content has-text-justified">
+          <p>
+            We find a lack of correlation for both Llama-3.2-3B and Qwen2.5-3B across all three classification/multi-choice tasks tested. The Spearman coefficient is at most 0.33 in these tasks.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/imgs/classification_tasks.png"
+                 alt="Lack of correlation on classification tasks."/>
+        </div>
+        <!--/ Classification. -->
+
+        <!-- Generative. -->
+        <h3 class="title is-4">Generative Task</h3>
+        <div class="content has-text-justified">
+          <p>
+            The lack of correlation persisted when using Llama-3.1-3B on GSM8K.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/imgs/gsm8k.png"
+                 alt="Lack of correlation on a generative task."/>
+        </div>
+        <!--/ Generative. -->
+
+      </div>
+    </div>
+    <!--/ Results. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Model Variant Analysis</h2>
+      
+        <div class="columns is-centered">
+      <!-- Llama-3.1-8B. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-4">Larger Model Variant (8B)</h2>
+          <p>
+            We also explore the usage of Llama-3.1-8B to investigate the behaviour on larger variants.
+          </p>
+          <!-- Place holder -->
+        </div>
+      </div>
+      <!--/ Llama-3.1-8B. -->
+
+      <!-- Llama-3.1-8B-Instruct. -->
+      <div class="column">
+        <h2 class="title is-4">Instruct Variant</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              For completness, we also investigate Llama-3.1-8B-Instruct to explore the impact of supervised fine-tuning.
+            </p>
+            <!-- Place holder -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Llama-3.1-8B-Instruct. -->
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Layer-Level Analysis</h2>
+  
+      <!-- Per-Layer. -->
+        <h3 class="title is-4">What if we exclude the embedding layer?</h3>
+        <div class="content has-text-justified">
+          <p>
+            The lack of correlation is still maintained and the changes in values are unnoticeable.
+          </p>
+          <p>
+            <!-- Place holder -->
+          </p>
+          <p>
+            <!-- Place holder -->
+          </p>
+        </div>
+        <div class="content has-text-centered">
+        </div>
+        <!--/ Per-Layer. -->
+
+        <!-- Per-Layer. -->
+        <h3 class="title is-4">Then, what about looking at each layer independently? Maybe one is noisy?</h3>
+        <div class="content has-text-justified">
+          <p>
+            Here we look at ARC-C due to the high numbers of coefficient to process. Depsite some layers having higher 
+            correlations than others, the correlation does not exceed the current highscore of 0.33.
+          </p>
+          <p>
+            <!-- Place holder -->
+        </div>
+        <div class="content has-text-centered">
+        </div>
+        <!--/ Per-Layer. -->
+    
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{osman2026activation,
+  title     = {Activation-Based Active Learning for In-Context Learning: Challenges and Insights},
+  author    = {Osman, Yaseen M and Merrett, Geoff V and Middleton, Stuart E},
+  journal   = {arXiv preprint arXiv:2606.05134},
+  year      = {2026},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+         <!--/ Acknowledgments. -->
+        <h2 class="title is-3">Acknowledgments</h2>
+        <div class="content has-text-justified">
+          <p>
+            This work was supported by the UK Research and Innovation Centre for Doctoral Training in Machine Intelligence for Nano-electronic Devices and Systems 
+            [EP/S024298/1]. The authors acknowledge the use of the IRIDIS High Performance Computing Facility, and associated support services at the University of 
+            Southampton, in the completion of this work.
+          </p>
+        </div>
+         <!--/ Acknowledgments. -->
+        <div class="content">
+          <p>
+            Website is adapted from the following <a href="https://nerfies.github.io/">template</a> using the following <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a>. The layout also benefitted from the following <a
+              href="https://github.com/nerfies/nerfies.github.io">website</a>.
+          <!-- </p>
+          <p> -->
+            As such, this website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
