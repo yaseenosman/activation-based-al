@@ -3,3 +3,5 @@ This branch contains the source code of the paper's [webpage](https://yaseenosma
 
 # Webpage Licence
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+Website code is adapted from the following [template](https://nerfies.github.io/) using the following [source](https://github.com/nerfies/nerfies.github.io) code. The layout also benefitted from the following [website](https://github.com/nerfies/nerfies.github.io).
