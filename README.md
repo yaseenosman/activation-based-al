@@ -11,7 +11,23 @@ cd activation-based-al
 ```
 
 ### Setup Environment
-<!-- Place holder-->
+Create an activate an envrionment with Python 3.12.6:
+```bash
+conda create -n activation-al python==3.12.6
+conda install -n activation-al pip
+conda activate activation-al
+```
+
+Then install the libraries:
+
+```bash
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+pip install triton==3.2.0
+pip install transformers==4.51.3
+pip install matplotlib
+pip install lm_eval==0.4.8
+```
+We have used CUDA 12.4.0
 
 ## Preparing Data
 ```bash
@@ -55,6 +71,8 @@ The following `--attnmask` options are available as options: `["causal", "none",
 This work was supported by the UK Research and Innovation Centre for Doctoral Training in Machine Intelligence for Nano-electronic Devices and Systems [EP/S024298/1]. The authors acknowledge the use of the IRIDIS High Performance Computing Facility, and associated support services at the University of Southampton, in the completion of this work.
 
 This repository benefitted from [transformers by huggingface](https://github.com/huggingface/transformers) and [lm-evaluation-harness by EleutherAI](https://github.com/EleutherAI/lm-evaluation-harness) codes.
+
+We acknowledge the help of Dr Corran Webster from the Southampton Research Software Group and the MINDS CDT Impact team on reviewing the code.
 
 ## Citation
 If you find our work useful, please consider citing our paper.
