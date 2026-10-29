@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you benefit from this software, please see citation below."
+title: "Activation-Based Active Learning for In-Context Learning: Challenges and Insights"
+date-released: 2026-10
+url: "https://github.com/yaseenosman/activation-based-al"
+authors: 
+  - family-names: Osman
+    given-names: "Yaseen M."
+  - family-names: Merrett
+    given-names: "Geoff V."
+  - family-names: Middleton
+    given-names: "Stuart E."
+preferred-citation:
+  type: article
+  authors:
+  - family-names: Osman
+    given-names: "Yaseen M."
+  - family-names: Merrett
+    given-names: "Geoff V."
+  - family-names: Middleton
+    given-names: "Stuart E."
+  journal: "arXiv preprint arXiv:2606.05134"
+  title: "Activation-Based Active Learning for In-Context Learning: Challenges and Insights"
+  year: 2026
+  url: "https://arxiv.org/abs/2606.05134"
