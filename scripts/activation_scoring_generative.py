@@ -297,5 +297,5 @@ while index_x < len(data_split):
             torch.cuda.empty_cache()
     progress_bar.update(batch_size)
 
-with open(f'{output_path}/{attn_mask}_{data_id}_{split_id}.json', mode="w", encoding="utf-8") as write_file:
+with open(f'{output_path}/{attn_mask}_{data_id}{split_id}.json', mode="w", encoding="utf-8") as write_file:
     json.dump([{"id": "per_v_max", "data": per_v_max_all}, {"id": "max_act", "data": max_act_all}, {"id": "mean_abs", "data": mean_abs_all}, {"id": "variance", "data": var_final_all}, {"id": "skewness", "data": skewness_all}, {"id": "kurtosis", "data": kurtosis_all}], write_file, indent=4)

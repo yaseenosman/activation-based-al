@@ -25,7 +25,10 @@ pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https
 pip install triton==3.2.0
 pip install transformers==4.51.3
 pip install matplotlib
+pip install seaborn
+pip install pandas
 pip install lm_eval==0.4.8
+pip install scipy==1.17.1
 ```
 We have used CUDA 12.4.0
 
@@ -43,16 +46,16 @@ When we ran the experiments, we split each dataset into several segments to dist
 The evaluation code can be found in `./scripts/evaluation.py` as well as under `./lm_eval_tasks_adapted`. Here we provide two example commands to run the evaluation of Llama-3.2-3B on GSM8K (first segment) and Qwen2.5-3B on OBQA.
 
 ```bash
-python ./scripts/evaluation.py --runid "gsm8k" --modelname "meta-llama/Llama-3.2-3B" --includepath "./lm_eval_tasks_adapted" --task "gsm8k_sampling_1" --outputpath "./out" --addbos --batchsize 64 
+python ./scripts/evaluation.py --runid "gsm8k1" --modelname "meta-llama/Llama-3.2-3B" --includepath "./lm_eval_tasks_adapted" --task "gsm8k_sampling_1" --outputpath "./out" --addbos --batchsize 64 
 ```
 
 ```bash
 python ./scripts/evaluation.py --runid "obqa" --modelname "Qwen/Qwen2.5-3B" --includepath "./lm_eval_tasks_adapted" --task "obqa_sampling" --outputpath "./out"
 ```
-The `--runid` value can be one of the following: `["arcc_sampling", "boolq_sampling", "obqa_sampling", "gsm8k_sampling_1", "gsm8k_sampling_2", "gsm8k_sampling_3"]`, representing the task/segment to be run. We use `--addbos` when running Llama-3.2-3B, but not when running Qwen2.5-3B.
+The `--task` value can be one of the following: `["arcc_sampling", "boolq_sampling", "obqa_sampling", "gsm8k_sampling_1", "gsm8k_sampling_2", "gsm8k_sampling_3"]`, representing the task/segment to be run. We use `--addbos` when running Llama-3.2-3B, but not when running Qwen2.5-3B.
 
 ## Computing Shot Scores
-The code to compute the shot scores can be found in `./scripts/activation_scoring_classification.py` and `./scripts/activation_scoring_generative.py`. Below are example commands to run
+The code to compute the shot scores can be found in `./scripts/activation_scoring_classification.py` and `./scripts/activation_scoring_generative.py`. Below are example commands to run.
 
 ```bash
 python ./scripts/activation_scoring_generative.py --attnmask "none" --dataid "gsm8k" --splitid 1 --modelname "meta-llama/Llama-3.2-3B" --inputpath "./out/gsm8k_processed_1" --outputpath "./out" --addbos
@@ -65,7 +68,17 @@ python ./scripts/activation_scoring_classification.py --attnmask "causal" --data
 The following `--attnmask` options are available as options: `["causal", "none", "row", "col"]`. For `./scripts/activation_scoring_classification.py`, available `--dataid` options are: `["arcc", "obqa", "boolq"]`. Conversely, `./scripts/activation_scoring_generative.py` has only `"gsm8k"` as an option. Again, we use `--addbos` when running Llama-3.2-3B, but not when running Qwen2.5-3B.
 
 ## Calculating Spearman Correlation
-<!-- Place holder-->
+The commands to run the correlation can be found below.
+
+```bash
+python ./scripts/compute_correlations.py --attnmask "none" --dataid "gsm8k" --metricname "exact_match" --inputpath "./out" --outputpath "./out"
+```
+
+```bash
+python ./scripts/compute_correlations.py --attnmask "causal" --dataid "obqa" --metricname "acc" --inputpath "./out" --outputpath "./out"
+```
+
+This outputs a numpy.array of shape (6, 2), such that the first column represents the correlation coefficient and the second column represents the p_values. The rows represent Per-Vector Max, Max Activation, Mean, Variance, Skewness, and Kurtosis, respectively.
 
 ## Acknowledgement
 This work was supported by the UK Research and Innovation Centre for Doctoral Training in Machine Intelligence for Nano-electronic Devices and Systems [EP/S024298/1]. The authors acknowledge the use of the IRIDIS High Performance Computing Facility, and associated support services at the University of Southampton, in the completion of this work.
