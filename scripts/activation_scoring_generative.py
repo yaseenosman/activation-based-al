@@ -21,6 +21,7 @@ parser.add_argument("--modelname", type=str, default="meta-llama/Llama-3.2-3B")
 parser.add_argument("--inputpath", type=str, default="./out/gsm8k_processed_1")
 parser.add_argument("--outputpath", type=str, default="./out")
 parser.add_argument("--addbos", action='store_true')
+parser.add_argument("--indexclearingcache", type=int, default=413057)
 
 args = parser.parse_args()
 
@@ -38,6 +39,7 @@ model_name = args.modelname
 input_path = args.inputpath
 output_path = args.outputpath
 add_bos = args.addbos
+index_clearing_cache = args.indexclearingcache
 
 logger.info(f"attn_mask: {attn_mask}, data_id: {data_id}, split_id {split_id}, model_name: {model_name}, input_path: {input_path}, output_path: {output_path}, add_bos: {add_bos}")
 
@@ -280,7 +282,7 @@ while index_x < len(data_split):
         kurtosis_all[current_id] = kurtosis
 
     # Was needed to avoid OOM Errors when running the 8B variants
-    if index_x >= 413057:
+    if index_x >= index_clearing_cache:
         if "8B" in model_name:
             del out_x
             torch.cuda.empty_cache()
