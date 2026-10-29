@@ -60,19 +60,6 @@ tokenizer.pad_token_id = tokenizer.eos_token_id
 model.config._attn_implementation="eager"
 model.eval()
 
-# Function from transformers v4.51.3: https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/llama/modeling_llama.py, licensed under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
-# And https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/qwen2/modeling_qwen2.py, licensed under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
-def repeat_kv(hidden_states: torch.Tensor, n_rep: int) -> torch.Tensor:
-    """
-    This is the equivalent of torch.repeat_interleave(x, dim=1, repeats=n_rep). The hidden states go from (batch,
-    num_key_value_heads, seqlen, head_dim) to (batch, num_attention_heads, seqlen, head_dim)
-    """
-    batch, num_key_value_heads, slen, head_dim = hidden_states.shape
-    if n_rep == 1:
-        return hidden_states
-    hidden_states = hidden_states[:, :, None, :, :].expand(batch, num_key_value_heads, n_rep, slen, head_dim)
-    return hidden_states.reshape(batch, num_key_value_heads * n_rep, slen, head_dim)
-
 # Function adapted from transformers v4.51.3: https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/llama/modeling_llama.py, licensed under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
 # And https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/qwen2/modeling_qwen2.py, licensed under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
 def adapted_eager_attention_forward(
@@ -188,8 +175,10 @@ def my_compute(input_t):
 
 if attn_mask != "causal":
     if "Llama" in model_name:
+        from transformers.models.llama.modelling_llama import repeat_kv
         transformers.models.llama.modeling_llama.eager_attention_forward = adapted_eager_attention_forward
     elif "Qwen2" in model_name:
+        from transformers.models.qwen2.modeling_qwen2 import repeat_kv
         transformers.models.qwen2.modeling_qwen2.eager_attention_forward = adapted_eager_attention_forward
     else:
         logger.info("============================== Error! Model used not supported. Using unadapted eager_attention_forward ==============================")
