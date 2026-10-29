@@ -59,7 +59,7 @@ model.config._attn_implementation="eager"
 model.eval()
 
 # Function adapted from transformers v4.51.3: https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/llama/modeling_llama.py, licensed under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
-# And https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/qwen2/modeling_qwen2.py, licensed under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+# And https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/qwen2/modeling_qwen2.py, licensed under the Apache License, Version 2.0 (https://github.com/huggingface/transformers/blob/v4.51.3/LICENSE, https://www.apache.org/licenses/LICENSE-2.0)
 def adapted_eager_attention_forward(
     module: nn.Module,
     query: torch.Tensor,
@@ -206,7 +206,7 @@ skewness_all = {}
 kurtosis_all = {}
 
 for d in range(len(data_split)):
-    # Prompt templates adapted from EleutherAI's LM Evaluation Harness (https://github.com/EleutherAI/lm-evaluation-harness/tree/v0.4.8), repository licensed under the MIT License (https://opensource.org/license/mit)
+    # Prompt templates adapted from EleutherAI's LM Evaluation Harness (https://github.com/EleutherAI/lm-evaluation-harness/tree/v0.4.8), repository licensed under the MIT License (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/LICENSE.md)
     if data_id == "obqa":
         formatted_prompt = data_split[d]["question_stem"]
     elif data_id == "arcc":

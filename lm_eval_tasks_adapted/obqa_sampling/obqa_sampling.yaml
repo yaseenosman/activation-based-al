@@ -1,4 +1,4 @@
-# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/openbookqa/openbookqa.yaml
+# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/openbookqa/openbookqa.yaml, repository licensed under the MIT License (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/LICENSE.md)
 task: obqa_sampling
 dataset_path: "./out/obqa_processed"
 output_type: multiple_choice

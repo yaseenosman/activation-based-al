@@ -1,4 +1,4 @@
-# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/gsm8k/gsm8k.yaml
+# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/gsm8k/gsm8k.yaml, repository licensed under the MIT License (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/LICENSE.md)
 task: gsm8k_sampling_1
 dataset_path: "./out/gsm8k_processed_1"
 output_type: generate_until

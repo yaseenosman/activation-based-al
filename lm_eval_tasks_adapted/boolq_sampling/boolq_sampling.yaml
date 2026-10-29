@@ -1,4 +1,4 @@
-# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/super_glue/boolq/default.yaml
+# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/super_glue/boolq/default.yaml, repository licensed under the MIT License (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/LICENSE.md)
 task: boolq_sampling
 dataset_path: "./out/boolq_processed"
 output_type: multiple_choice

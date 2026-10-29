@@ -1,4 +1,4 @@
-# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/arc/arc_easy.yaml
+# Adapted from EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/arc/arc_easy.yaml, repository licensed under the MIT License (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/LICENSE.md)
 task: arcc_sampling
 dataset_path: "./out/arcc_processed"
 output_type: multiple_choice

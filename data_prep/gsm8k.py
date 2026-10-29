@@ -1,5 +1,5 @@
 # This code uses the BoolQ https://arxiv.org/abs/2110.14168, https://huggingface.co/datasets/openai/gsm8k
-# This code uses the prompt template used on EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/gsm8k/gsm8k.yaml, repository licensed under the MIT License (https://opensource.org/license/mit)
+# This code uses the prompt template used on EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/gsm8k/gsm8k.yaml, repository licensed under the MIT License (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/LICENSE.md)
 from datasets import load_dataset, concatenate_datasets
 from tqdm import tqdm
 import os

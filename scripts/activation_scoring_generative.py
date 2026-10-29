@@ -63,7 +63,7 @@ model.config._attn_implementation="eager"
 model.eval()
 
 # Function adapted from transformers v4.51.3: https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/llama/modeling_llama.py, licensed under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
-# And https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/qwen2/modeling_qwen2.py, licensed under the Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+# And https://github.com/huggingface/transformers/blob/v4.51.3/src/transformers/models/qwen2/modeling_qwen2.py, licensed under the Apache License, Version 2.0 (https://github.com/huggingface/transformers/blob/v4.51.3/LICENSE, https://www.apache.org/licenses/LICENSE-2.0)
 def adapted_eager_attention_forward(
     module: nn.Module,
     query: torch.Tensor,
@@ -256,7 +256,7 @@ while index_x < len(data_split):
         batch_size = 64
     
     for p in range(batch_size):
-        # Prompt template adapted from EleutherAI's LM Evaluation Harness (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/gsm8k/gsm8k.yaml, repository licensed under the MIT License (https://opensource.org/license/mit)
+        # Prompt template adapted from EleutherAI's LM Evaluation Harness (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/gsm8k/gsm8k.yaml, repository licensed under the MIT License (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/LICENSE.md)
         formatted_prompt = data_split[index_x]["question"]  + "\nAnswer:"
         formatted_test = formatted_prompt.split("\n\n")[-1]
         if add_bos:
