@@ -206,7 +206,7 @@ skewness_all = {}
 kurtosis_all = {}
 
 for d in range(len(data_split)):
-    # Prompt templates adapted from EleutherAI's LM Evaluation Harness (https://github.com/EleutherAI/lm-evaluation-harness/tree/v0.4.8)
+    # Prompt templates adapted from EleutherAI's LM Evaluation Harness (https://github.com/EleutherAI/lm-evaluation-harness/tree/v0.4.8), repository licensed under the MIT License (https://opensource.org/license/mit)
     if data_id == "obqa":
         formatted_prompt = data_split[d]["question_stem"]
     elif data_id == "arcc":

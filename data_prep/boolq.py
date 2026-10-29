@@ -1,5 +1,5 @@
 # This code uses the BoolQ https://arxiv.org/abs/1905.00537, https://arxiv.org/abs/1905.10044, https://huggingface.co/datasets/aps/super_glue
-# This code uses the prompt template used on EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/super_glue/boolq/default.yaml
+# This code uses the prompt template used on EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/super_glue/boolq/default.yaml, repository licensed under the MIT License (https://opensource.org/license/mit)
 from datasets import load_dataset, concatenate_datasets
 from tqdm import tqdm
 import os

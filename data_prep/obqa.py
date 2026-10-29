@@ -1,5 +1,5 @@
 # This code uses the OpenBookQA https://arxiv.org/abs/1809.02789, https://huggingface.co/datasets/allenai/openbookqa
-# This code uses the prompt template used on EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/openbookqa/openbookqa.yaml
+# This code uses the prompt template used on EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/openbookqa/openbookqa.yaml, repository licensed under the MIT License (https://opensource.org/license/mit)
 from datasets import load_dataset, concatenate_datasets
 from tqdm import tqdm
 import os

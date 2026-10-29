@@ -256,7 +256,7 @@ while index_x < len(data_split):
         batch_size = 64
     
     for p in range(batch_size):
-        # Prompt template adapted from EleutherAI's LM Evaluation Harness (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/gsm8k/gsm8k.yaml)
+        # Prompt template adapted from EleutherAI's LM Evaluation Harness (https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/gsm8k/gsm8k.yaml, repository licensed under the MIT License (https://opensource.org/license/mit)
         formatted_prompt = data_split[index_x]["question"]  + "\nAnswer:"
         formatted_test = formatted_prompt.split("\n\n")[-1]
         if add_bos:

@@ -1,5 +1,5 @@
 # This code uses the ARC-Challenge https://arxiv.org/abs/1803.05457, https://huggingface.co/datasets/allenai/ai2_arc
-# This code uses the prompt template used on EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/arc/arc_easy.yaml
+# This code uses the prompt template used on EleutherAI's LM Evaluation Harness https://github.com/EleutherAI/lm-evaluation-harness/blob/v0.4.8/lm_eval/tasks/arc/arc_easy.yaml, repository licensed under the MIT License (https://opensource.org/license/mit)
 from datasets import load_dataset, concatenate_datasets
 from tqdm import tqdm
 import os
